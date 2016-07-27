@@ -19,8 +19,8 @@
  * RHT03 parts and datasheets are available from Sparkfun: https://www.sparkfun.com/products/10167
  * Male/Female jumper wires for connecting the RHT02 (DHT22) are available from Sparkfun: https://www.sparkfun.com/products/9140
  */
-#include <CurieBle.h>
-#include <dht.h> // DHT22 library, modified for Arduino 101.  Source at https://github.com/bneedhamia/DHT
+#include <CurieBLE.h>
+#include "dht.h" // DHT22 library, modified for Arduino 101.  Source at https://github.com/bneedhamia/DHT
 
 /*
  * Pins:
@@ -35,8 +35,10 @@
 const int PIN_CONNECTED_LED = 13;
 const int DHT22_DATA = 7;
 
-const char *BLE_LOCAL_NAME = "TempHumidRHT03";  // Advertised name of our BLE Device
-const long TEMPERATURE_UPDATE_INTERVAL_MS = 2000L;  // minimum time between temperature & humidity updates, in milliseconds.
+
+//const char *BLE_LOCAL_NAME = "TempHumidRHT03";  // Advertised name of our BLE Device
+const char *BLE_LOCAL_NAME = "TempHumid-DTH22";  // Advertised name of our BLE Device
+const long TEMPERATURE_UPDATE_INTERVAL_MS = 1000L;  // minimum time between temperature & humidity updates, in milliseconds.
 
 BLEPeripheral myBLE;              // Root of our BLE Peripheral (server) capability
 BLEService bleEnvironmental("181A"); // Our BLE Service.  See https://developer.bluetooth.org/gatt/services/Pages/ServiceViewer.aspx?u=org.bluetooth.service.environmental_sensing.xml
